@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <title>Gestión de Turnos Médicos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <h2>Gestión de Turnos</h2>
+            <div id="datosUsuario" style="font-size: 13px; color: #94a3b8; margin-bottom: 10px;">Cargando usuario...</div>
+            <nav>
+                <a href="#" id="linkInicio" class="activo">Inicio / Turnos</a>
+                <a href="#" id="linkNuevoTurno">Nuevo Turno</a>
+                <button id="cerrarSesion" type="button">Cerrar Sesión</button>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="contenido">
+            
+            <!-- SECCIÓN 1: INICIO / LISTADO DE TURNOS -->
+            <section id="seccionInicio" class="vista-seccion">
+                <div class="tarjeta-seccion">
+                    <h2 id="tituloTurnos">Turnos Registrados</h2>
+                    <div style="overflow-x: auto; margin-top: 15px;">
+                        <table class="tabla-turnos">
+                            <thead>
+                                <tr>
+                                    <th>Fecha / Hora</th>
+                                    <th>Paciente (DNI)</th>
+                                    <th>Contacto</th>
+                                    <th>Práctica / Servicio</th>
+                                    <th>Equipo</th>
+                                    <th>Estado</th>
+                                    <th>Acciones Recepción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaTurnosBody">
+                                <!-- Los turnos se cargan dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: NUEVO TURNO (Oculta por defecto) -->
+            <section id="seccionNuevoTurno" class="vista-seccion" style="display: none;">
+                <div class="tarjeta-seccion">
+                    <h2>Reservar Nuevo Turno</h2>
+                    <form id="formTurno">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="dni_paciente">DNI Paciente</label>
+                                <input type="number" id="dni_paciente" placeholder="Ej: 45678901" required>
+                            </div>
+                            <div class="form-group">
+    <label for="id_practica">Práctica Médica</label>
+    <select id="id_practica" required>
+        <option value="">Cargando prácticas...</option>
+    </select>
+</div>
+                            <!-- Seleccionar médico asignado -->
+                            <div class="form-group">
+                                <label for="matricula_medico">Médico Asignado</label>
+                                <select id="matricula_medico" required>
+                                    <option value="">Seleccione médico...</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_disponibilidad">Disponibilidad del Médico</label>
+                                <select id="id_disponibilidad" required disabled>
+                                    <option value="">Seleccione un médico primero...</option>
+                                </select>
+                            </div>
+
+    <div class="form-group">
+    <label for="id_equipo">Equipo Asignado</label>
+    <select id="id_equipo" required disabled>
+        <option value="">Seleccione una práctica primero...</option>
+    </select>
+</div>
+
+                            <div class="form-group">
+                                <label for="fecha_turno">Fecha</label>
+                                <input type="date" id="fecha_turno" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hora_turno">Hora (L-V 8-20h | Sáb 8-14h)</label>
+                                <input type="time" id="hora_turno" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-bottom" style="margin-top: 15px;">
+                            <div class="form-group">
+                                <label for="medio_solicitado">Medio Solicitado</label>
+                                <select id="medio_solicitado" required>
+                                    <option value="Presencial">Presencial</option>
+                                    <option value="Web">Web</option>
+                                    <option value="Teléfono">Teléfono</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="display: flex; align-items: flex-end;">
+                                <button type="submit" class="btn-primario">Registrar Turno</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p id="mensajeTurno" style="margin-top: 15px; font-weight: bold;"></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

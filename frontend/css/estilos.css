@@ -1,0 +1,369 @@
+/* ================================================= */
+/* ESTILOS GENERALES Y DE LOGIN (index.html)         */
+/* ================================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px #00000015;
+}
+
+.tarjeta h1 {
+    margin-top: 0;
+    color: #002855;
+    font-size: 26px;
+}
+
+.tarjeta > p {
+    color: #666;
+}
+
+/* Estilos específicos para el formulario de Login */
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+#formLogin input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#formLogin button {
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #002855;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#formLogin button:hover {
+    background: #004080;
+}
+
+#formLogin button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#mensaje {
+    overflow-wrap: anywhere;
+    margin-bottom: 0;
+}
+
+/* ================================================= */
+/* ESTILOS DEL PANEL DE ADMINISTRACIÓN (dashboard)   */
+/* ================================================= */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: #f1f5f9;
+}
+
+/* Barra lateral (Sidebar) */
+.sidebar {
+    width: 250px;
+    background: #1e293b;
+    color: white;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    line-height: 1.2;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+    flex: 1;
+}
+
+.sidebar nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 11px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar nav a:hover, 
+.sidebar nav a.activo {
+    background: #334155;
+    color: #ffffff;
+}
+
+.sidebar button {
+    margin-top: 10px;
+    background: transparent;
+    color: #cbd5e1;
+    border: none;
+    padding: 11px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: left;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar button:hover {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+/* Contenido Principal */
+.contenido {
+    flex: 1;
+    padding: 24px 32px;
+    background: #f1f5f9;
+    overflow-y: auto;
+}
+
+/* Tarjetas de Secciones (Formulario y Tabla) */
+.tarjeta-seccion {
+    background: #ffffff;
+    padding: 26px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+}
+
+.tarjeta-seccion h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #0f172a;
+}
+
+/* Grillas para el formulario de turnos */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.form-grid-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #ffffff;
+    color: #0f172a;
+    outline: none;
+    height: 40px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #0056b3;
+}
+
+/* Botón principal de registro */
+.btn-primario {
+    background: #0056b3;
+    color: #ffffff;
+    border: none;
+    padding: 0 20px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+}
+
+.btn-primario:hover {
+    background: #004494;
+}
+
+/* Estilos de la tabla de turnos registrados */
+.tabla-turnos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.tabla-turnos th, 
+.tabla-turnos td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-turnos th {
+    background: #f8fafc;
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.tabla-turnos tr:hover {
+    background: #f8fafc;
+}
+
+/* Botón de cancelar en la tabla */
+.btn-cancelar {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-cancelar:hover:not(:disabled) {
+    background: #f87171;
+    color: white;
+}
+
+/* Insignias de estado */
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge.Reservado {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge.Confirmado {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.Cancelado {
+    background: #f1f5f9;
+    color: #64748b;
+    text-decoration: line-through;
+}
+
+/* Etiquetas de estado y botones de acción en tabla */
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge.Reservado,
+.badge.Pendiente {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge.Confirmado {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.Cancelado {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-accion {
+    background: #e2e8f0;
+    color: #1e293b;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-accion:hover {
+    background: #cbd5e1;
+}
+
+/* Adaptación para pantallas medianas y móviles */
+@media (max-width: 1100px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .form-grid-bottom {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .form-grid,
+    .form-grid-bottom {
+        grid-template-columns: 1fr;
+    }
+}
